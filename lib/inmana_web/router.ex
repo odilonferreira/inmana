@@ -11,7 +11,10 @@ defmodule InmanaWeb.Router do
     get "/", WelcomeController, :index
 
     post "/restaurants", RestaurantsController, :create
-    post "/supplies", SuppliesController, :create
+
+    # Creating automatically default routes in an api rest
+    # option 'only' allow controll the routes that will be created
+    resources "/supplies", SuppliesController, only: [:create, :show]
   end
 
   # Enables LiveDashboard only for development
